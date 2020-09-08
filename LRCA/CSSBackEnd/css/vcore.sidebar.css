@@ -1,0 +1,38 @@
+
+.vsidebar{
+    position: fixed;
+    right: 150px;
+    bottom: -5px;
+}
+.vsidebar ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.vsidebar li{
+    margin-bottom: 1px;
+    height: 40px;
+}
+.vsidebar li a{
+    display: block;
+    position: relative;
+}
+.vsidebar li .icon{
+    display: block;
+    width: 139px;
+    height: 40px;
+    
+    overflow: hidden;
+}
+.vsidebar li .txt{
+    
+}
+.vsidebar li:hover .txt{
+   
+}
+.vsidebar li:hover .icon{
+   
+}
+.vsidebar li:hover .icon:before{
+   
+}

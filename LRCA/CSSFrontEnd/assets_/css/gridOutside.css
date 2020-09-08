@@ -1,0 +1,137 @@
+﻿
+body {
+    font-family: sans-serif;
+}
+
+/* ---- input ---- */
+
+
+
+/* ---- isotope ---- */
+
+.grid {
+    border: 0px solid #333;
+}
+
+    /* clear fix */
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+/* ---- .element-item ---- */
+
+.element-item {
+    position: relative;
+    float: left;
+    width: 151px;
+    height: 180px;
+    margin: 5px;
+    padding: 8px;
+    background: #888;
+    color: #262524;
+}
+
+    .element-item > * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .element-item .name {
+        position: absolute;
+        left: 10px;
+        top: 76px;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .element-item .symbol {
+        position: absolute;
+        left: 10px;
+        top: 33px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #AB1027;
+    }
+
+    .element-item .number {
+        position: absolute;
+        right: 8px;
+        top: 5px;
+        font-size: 12px;
+    }
+
+    .element-item .weight {
+        position: absolute;
+        left: 10px;
+        top: 150px;
+        font-size: 10px;
+    }
+
+    .element-item.alkali {
+        background: #Fff;
+    }
+
+    .element-item.alkaline-earth {
+        background: #Fff;
+    }
+
+    .element-item.lanthanoid {
+        background: #FFf;
+    }
+
+    .element-item.actinoid {
+        background: #fff;
+    }
+
+    .element-item.transition {
+        background: #fff;
+    }
+
+    .element-item.post-transition {
+        background: #fff;
+    }
+
+    .element-item.metalloid {
+        background: #fff;
+    }
+
+    .element-item.diatomic {
+        background: #fff;
+    }
+
+    .element-item.halogen {
+        background: #fff;
+    }
+
+    .element-item.noble-gas {
+        background: #fff;
+    }
+
+.panel-heading [data-toggle="collapse"]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e072"; /* "play" icon */
+    float: right;
+    color: #F58723;
+    font-size: 18px;
+    line-height: 22px;
+    /* rotate "play" icon from > (right arrow) to down arrow */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #454444;
+}

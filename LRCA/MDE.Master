@@ -1,0 +1,564 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MDE.master.cs" Inherits="LRCA.MDE" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+   <title>LEAD Rental Certification and Accreditation</title>
+
+    <!-- Meta -->
+    <meta name="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="LRCA: LEAD Rental Certification and Accreditation.">
+    <meta name="author" content="LEAD Rental Certification and Accreditation">
+    
+    <!-- Use the correct meta names below for your web application
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">-->
+    
+		<!-- Vendor styles -->
+    <link rel="stylesheet" href="CSSBackEnd/vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="CSSBackEnd/vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="CSSBackEnd/vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="CSSBackEnd/vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="CSSBackEnd/vendor/datatables/media/css/dataTables.bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="CSSBackEnd/vendor/datatables/media/css/buttons.dataTables.min.css" type="text/css" />
+    <link href="CSSBackEnd/vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <!-- App styles -->
+    <link rel="stylesheet" href="CSSBackEnd/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="CSSBackEnd/fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="CSSBackEnd/styles/style.css">
+
+    <script type="text/javascript" src="CSSBackEnd/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="CSSBackEnd/scripts/bootstrap-notify.min.js"></script>
+	<!-- FAVICONS -->
+	<link rel="shortcut icon" href="CSSBackEnd/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="CSSBackEnd/img/favicon/favicon.ico" type="image/x-icon">
+    
+     <script type="text/javascript">
+        function CallNotify(titleIn, msgIn, msgType, URLTo) {
+            $.notify({
+                // options
+                icon: 'glyphicon glyphicon-warning-sign',
+                title: titleIn,
+                message: msgIn,
+                url: '',
+                target: '_blank'
+            }, {
+                // settings
+                element: 'body',
+                position: null,
+                type: msgType,
+                allow_dismiss: true,
+                newest_on_top: true,
+                showProgressbar: false,
+                placement: {
+                    from: "top",
+                    align: "center"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 13000,
+                timer: 10000,
+                url_target: '_blank',
+                mouse_over: null,
+                animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+                },
+                onShow: null,
+                onShown: null,
+                onClose: null,
+                onClosed: null,
+                icon_type: 'class',
+                template: '<div data-notify="container" width="100%" class="col-xs-12 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                    '<span data-notify="icon"></span> ' +
+                    '<span data-notify="title">{1}</span> ' +
+                    '<span data-notify="message" nowrap>{2}</span>' +
+                    '<div class="progress" data-notify="progressbar">' +
+                        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    '</div>' +
+                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                '</div>'
+            });
+            if (URLTo != "#")
+            {
+                setTimeout(function () {
+                    $.notifyClose();
+                    $(location).attr('href', URLTo)
+                }, 3000);
+            }
+            
+        }
+    </script>
+            <asp:ContentPlaceHolder ID="CPHead" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+</head>
+
+<body>
+    
+<!-- Simple splash screen-->
+<div class="splash"> <div class="splash-title"><h1>powered by Serigor</h1><p>loading application... Please wait! </p><img src="CSSBackEnd/img/loading-bars.svg" width="64" height="64" /> </div> </div>
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    <form id="form1" runat="server">
+        <div id="header">
+            <div class="color-line">
+            </div>
+            <div id="logo" class="light-version">
+                <span>
+                    <asp:PlaceHolder ID="phLogoTop" runat="server"></asp:PlaceHolder>
+                </span>
+            </div>
+            <nav role="navigation">
+                <asp:Panel ID="pnlSideMenu" runat="server"></asp:Panel>
+                <div class='header-link hide-menu'><i class='fa fa-bars'></i></div>
+                <div class="small-logo">
+                    <span class="text-primary">
+                        <asp:Label ID="lblCompName" runat="server" ></asp:Label>
+                    </span>
+                </div>
+                <div role="search" class="navbar-form-custom" method="post" action="#">
+                    <div class="form-group">
+                       
+                    </div>
+                </div>
+        
+           
+       
+                <div class="mobile-menu">
+                    <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="collapse mobile-navbar" id="mobile-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a class="" href="login.html">Login</a>
+                            </li>
+                            <li>
+                                <a class="" href="logout.aspx">Logout</a>
+                            </li>
+                            <li>
+                                <a class="" href="profile.html">Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+		
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav no-borders">
+                        <li class="dropdown">
+                            <a href="dashboard.aspx?Dash=active" alt="Home" title="Home">
+                                <i class="pe-7s-home"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" alt="Notice Board" title="Notice Board">
+                                <i class="pe-7s-speaker"></i>
+                            </a>
+
+                            <div class="dropdown-menu hdropdown bigmenu animated flipInX">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="DisplayUsers.aspx?dusers=active" alt="User Search">
+                                                <i class="pe pe-7s-users text-primary"></i>
+                                                <h5>User Search</h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="DisplayNotices.aspx?dnotice=active">
+                                                <i class="pe pe-7s-speaker text-primary"></i>
+                                                <h5>Notices</h5>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="DisplayEmails.aspx?demails=active">
+                                                <i class="pe pe-7s-mail text-primary"></i>
+                                                <h5>Email Notices</h5>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="wall.aspx?dwall=active">
+                                                <i class="pe pe-7s-comment text-primary"></i>
+                                                <h5>Message Wall</h5>
+                                            </a>
+                                        </td>
+                                       <!-- <td>
+                                            <a href="dailylog.aspx?ddaily=active">
+                                                <i class="pe pe-7s-graph1 text-primary"></i>
+                                                <h5>Daily Log</h5>
+                                            </a>
+                                        </td> -->
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                      
+                         <li class="dropdown">
+                            <a class="dropdown-toggle label-menu-corner" href="#"  title="Branches" data-toggle="dropdown">
+                                <i class="pe-7s-world"></i>
+                            </a>
+                        </li>
+                       <li class="dropdown">
+                            <a href="OnlineHelp.aspx?help=active" title="Online Help">
+                                <i class="pe-7s-help1 "></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="logout.aspx" title="Logout" alt="Logout">
+                                <i class="pe-7s-upload pe-rotate-90"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <aside id="menu">
+            <div id="navigation">
+               <div class="profile-picture">
+                    <a href="UpdatePersonalInfo.aspx?Dash=active&call=">
+                        <asp:PlaceHolder ID="phProfileImg" runat="server"></asp:PlaceHolder>
+                    </a>
+                    <div class="stats-label text-color">
+                       
+                        <div>
+                           <h4 class="font-bold m-b-xs" style="font-size:13px">
+                                <asp:Label ID="lblUserName" runat="server"  ></asp:Label>
+                               
+                            </h4>
+                            <small class="text-muted">
+                            <asp:Panel ID="pnRole" runat="server"></asp:Panel>
+                                </small>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav" id="side-menu">
+                    
+                         <li class="<%=Request["Dashs"] %>">
+                        <a href="dashboard.aspx?Dash=active" title="Back to LRCA Dashboard"> <span class="nav-label"> Back To LRCA </span> </a>
+                    </li>
+                    <asp:PlaceHolder ID="phMDE" runat="server">
+                        <li class="<%=Request["Dash"] %>">
+                        <a href="dashboardMDE.aspx?Dash=active" title="MDE Dashboard"> <span class="nav-label">MDE Dashboard</span> </a>
+                    </li>
+                        <li class="<%=Request["mdeacct"] %>"><a href="MDE_AddEmp.aspx?mdeacct=active" title="Manage MD Employees"><span class="nav-label">MD Employees</span></a></li>
+                        <li class="<%=Request["mdecourse"] %>"><a href="MDEMgmtCourses.aspx?mdecourse=active" title="Manage Courses"><span class="nav-label">Courses</span></a></li>
+                        <li class="<%=Request["contapps"] %><%=Request["approveapps"] %>">
+                        <a href="#"><span class="nav-label">Contractor</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["contapps"] %>"><a href="MDE_ContrApps.aspx?contapps=active">Applications</a></li>
+                            <li class="<%=Request["approveapps"] %>"><a href="MDE_ContApprApps.aspx?approveapps=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                        <li class="<%=Request["RiskApps"] %><%=Request["apprRiskApps"] %>">
+                        <a href="#"><span class="nav-label">Inspector & Risk Assessor</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["RiskApps"] %>"><a href="MDE_RiskApps.aspx?RiskApps=active">Applications</a></li>
+                            <li class="<%=Request["apprRiskApps"] %>"><a href="MDE_RiskApprApps.aspx?apprRiskApps=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                        <li class="<%=Request["SuperApps"] %><%=Request["apprSuperApps"] %>">
+                        <a href="#"><span class="nav-label">Supervisor</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["SuperApps"] %>"><a href="MDE_SuperApps.aspx?SuperApps=active">Applications</a></li>
+                            <li class="<%=Request["apprSuperApps"] %>"><a href="MDE_SuperApprApps.aspx?apprSuperApps=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                        <li class="<%=Request["tpapps"] %><%=Request["approvetpapp"] %>">
+                        <a href="#"><span class="nav-label">Training Provider</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["tpapps"] %>"><a href="MDE_TPApps.aspx?tpapps=active">Applications</a></li>
+                            <li class="<%=Request["approvetpapp"] %>"><a href="MDE_AproTPApps.aspx?approvetpapp=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                        <li class="<%=Request["Instructapps"] %><%=Request["approveInstapp"] %>">
+                        <a href="#"><span class="nav-label">Instructors</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["Instructapps"] %>"><a href="MDE_InstructorApps.aspx?Instructapps=active">Applications</a></li>
+                            <li class="<%=Request["approveInstapp"] %>"><a href="MDE_AproInstApps.aspx?approveInstapp=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                        <li class="<%=Request["TCourseApps"] %><%=Request["apprTCourseApps"] %>">
+                        <a href="#"><span class="nav-label">Training Courses</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["TCourseApps"] %>"><a href="MDE_TCourseApps.aspx?TCourseApps=active">Applications</a></li>
+                            <li class="<%=Request["apprTCourseApps"] %>"><a href="MDE_TCourseApprApps.aspx?apprTCourseApps=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                         <li class="<%=Request["certapps"] %><%=Request["approvecertapp"] %>">
+                        <a href="#"><span class="nav-label">Certifications</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li class="<%=Request["certapps"] %>"><a href="MDE_CertApps.aspx?certapps=active">Applications</a></li>
+                            <li class="<%=Request["approvecertapp"] %>"><a href="MDE_ApprCertApps.aspx?approvecertapp=active">Closed Applications</a></li>
+                        </ul>
+                    </li>
+                    </asp:PlaceHolder>
+                       
+                     
+                </ul>
+            </div>
+        </aside>
+        <div id="wrapper">
+            <div class="content animate-panel">
+      
+                 <asp:ContentPlaceHolder ID="CPMain" runat="server">
+                    </asp:ContentPlaceHolder>
+			
+            
+            </div>
+        </div>
+ </form> 
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<!-- Vendor scripts -->
+
+<script src="CSSBackEnd/vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="CSSBackEnd/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="CSSBackEnd/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="CSSBackEnd/vendor/jquery-flot/jquery.flot.js"></script>
+<script src="CSSBackEnd/vendor/jquery-flot/jquery.flot.resize.js"></script>
+<script src="CSSBackEnd/vendor/jquery-flot/jquery.flot.pie.js"></script>
+<script src="CSSBackEnd/vendor/flot.curvedlines/curvedLines.js"></script>
+<script src="CSSBackEnd/vendor/jquery.flot.spline/index.js"></script>
+<script src="CSSBackEnd/vendor/metisMenu/dist/metisMenu.min.js"></script>
+<script src="CSSBackEnd/vendor/iCheck/icheck.min.js"></script>
+<script src="CSSBackEnd/vendor/peity/jquery.peity.min.js"></script>
+<script src="CSSBackEnd/vendor/sparkline/index.js"></script>
+    <script src="CSSBackEnd/vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+
+<!-- DataTables -->
+<script src="CSSBackEnd/vendor/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/dataTables.buttons.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/buttons.flash.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/jszip.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/pdfmake.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/vfs_fonts.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/buttons.html5.min.js" type="text/javascript"></script>
+<script src="CSSBackEnd/vendor/datatables/media/js/buttons.print.min.js " type="text/javascript"></script>
+
+<script src="CSSBackEnd/vendor/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+
+<!-- App scripts -->
+<script type="text/javascript" src="CSSBackEnd/scripts/homer.js"></script>
+<script type="text/javascript" src="CSSBackEnd/scripts/charts.js"></script>
+  <script src="CSSBackEnd/scripts/jspdf.min.js" type="text/javascript"></script>
+  
+<asp:ContentPlaceHolder ID="CPPageRelatedJavascript" runat="server">
+    </asp:ContentPlaceHolder>
+   <script type="text/javascript">
+		    $(document).ready(function () {
+            $('#example1').dataTable({
+                dom: 'Bfrtip',
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+            });
+            $('#example2').dataTable({
+                dom: 'Bfrtip',
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+            });
+            $('#example3').dataTable({
+                dom: 'Bfrtip',
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+            });
+            $('#example4').dataTable({
+                dom: 'Bfrtip',
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+            });
+            $('#example5').dataTable({
+                dom: 'Bfrtip',
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+                });     	
+                $('#example_').dataTable({
+                    dom: 'Bfrtip',
+                    bFilter: false,
+                aLengthMenu: [
+                [10, 20, 50, 100, 200, -1],
+                [10, 20, 50, 100, 200, "All"]
+                ],
+                aaSorting: [[2, 'asc']],
+                buttons: [
+                 'pageLength', 'excel', 'print'
+                ]
+            });     	
+		        /*
+				* TODO: add a way to add more todo's to list
+				*/
+
+		        // initialize sortable
+		        $(function () {
+		            $("#sortable1, #sortable2").sortable({
+		                handle: '.handle',
+		                connectWith: ".todo",
+		                update: countTasks
+		            }).disableSelection();
+		        });
+
+		        // check and uncheck
+		        $('.todo .checkbox > input[type="checkbox"]').click(function () {
+		            var $this = $(this).parent().parent().parent();
+
+		            if ($(this).prop('checked')) {
+		                $this.addClass("complete");
+
+		                // remove this if you want to undo a check list once checked
+		                //$(this).attr("disabled", true);
+		                $(this).parent().hide();
+
+		                // once clicked - add class, copy to memory then remove and add to sortable3
+		                $this.slideUp(500, function () {
+		                    $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
+		                    $this.remove();
+		                    countTasks();
+		                });
+		            } else {
+		                // insert undo code here...
+		            }
+
+		        })
+		        // count tasks
+		        function countTasks() {
+
+		            $('.todo-group-title').each(function () {
+		                var $this = $(this);
+		                $this.find(".num-of-tasks").text($this.next().find("li").size());
+		            });
+
+		        }
+
+		        
+		        /* live switch */
+		        $('input[type="checkbox"]#start_interval').click(function () {
+		            if ($(this).prop('checked')) {
+		                $on = true;
+		                updateInterval = 1500;
+		                update();
+		            } else {
+		                clearInterval(updateInterval);
+		                $on = false;
+		            }
+		        });
+
+		        function update() {
+		            if ($on == true) {
+		                plot.setData([getRandomData()]);
+		                plot.draw();
+		                setTimeout(update, updateInterval);
+
+		            } else {
+		                clearInterval(updateInterval)
+		            }
+
+		        }
+		    });
+		    function SavePDFFile(PDFControl,FileNameToSave ) {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        // source can be HTML-formatted string, or a reference
+        // to an actual DOM element from which the text will be scraped.
+                
+        source = $('#'+ PDFControl +'')[0];
+
+        // we support special element handlers. Register them with jQuery-style 
+        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+        // There is no support for any other type of selectors 
+        // (class, of compound) at this time.
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+        margins = {
+            top: 80,
+            bottom: 60,
+            left: 40,
+            width: 522
+        };
+        // all coords and widths are in jsPDF instance's declared units
+        // 'inches' in this case
+        pdf.fromHTML(
+            source, // HTML string or DOM elem ref.
+            margins.left, // x coord
+            margins.top, { // y coord
+                'width': margins.width, // max width of content on PDF
+                'elementHandlers': specialElementHandlers
+            },
+
+            function (dispose) {
+                // dispose: object with X, Y of the last line add to the PDF 
+                //          this allow the insertion of new lines after html
+                pdf.save(''+ FileNameToSave +'');
+            }, margins
+        );
+    }
+		    function autoPlayYouTubeModal() {
+		        var trigger = $("body").find('[data-toggle="modal"]');
+		        trigger.click(function () {
+		            var theModal = $(this).data("target"),
+                        videoSRC = $(this).attr("data-theVideo"),
+                        videoSRCauto = videoSRC + "?autoplay=1";
+		            $(theModal + ' iframe').attr('src', videoSRCauto);
+		            $(theModal + ' button.close').click(function () {
+		                $(theModal + ' iframe').attr('src', videoSRC);
+		            });
+		            $('.modal').click(function () {
+		                $(theModal + ' iframe').attr('src', videoSRC);
+		            });
+		        });
+       }
+               function hideside(IdIn) {
+                   if (IdIn == 3) {
+                       $("body").toggleClass("hide-sidebar");	
+                   }
+               }
+		</script>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+1800 Washington Boulevard, Baltimore, MD 21230
+
+ALTER AUTHORIZATION ON SCHEMA::[Training] TO [dbo]
+
+LEAD Rental Certification and Accreditation
+#C8122C main
+#AB1027 dark
+#F27789
+#FEC432  yellow
+MDE Lead Poisoning Prevention Program
+(410)537-3825 or 1-800-633-6101, Ext. 3825
+
+HttpContext.Current.Session["UserAuthId"]
+
+301-822-2814
+account is disabled = -1
+new user create a new password for a first time user -2
+account is reset if the forgot password 0
+Is Active Account 1
+
+
+MDE Approval Ids
+0 is Pending new application
+1 is Approved Application
+2 is Defferred
+3 is Denined
+
+
+
+  <li class="<%=Request["dstaff"] %><%=Request["donforms"] %>">
+                        <a href="#"><span class="nav-label">Files</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                                    <li class="<%=Request["donforms"] %>"><a href="onBoardingForms.aspx?donforms=active">Forms</a></li>
+                        </ul>
+                    </li>
+
+
+lblerror.Text = "<div  class='alert alert-success fade in' style='font-size:12px;'><button data-dismiss='alert' class='close' type='button'>×</button>Your password has been reset!</div>";
+lblerror.Text = "<div  class='alert alert-danger fade in' style='font-size:12px;'><button data-dismiss='alert' class='close' type='button'>×</button>Cannot Reset Password!</div>";
+					
+					
+Maryland Environmental Regulations
+
+
+CREATE TABLE dbo.MyTable  
+(  
+  MyDecimalColumn decimal(5,2)  
+,MyNumericColumn numeric(10,5)
+  
+);  
+  
+  Could not find stored procedure 'usp_SelectUserDynamic'."}
+  
+GO  
+INSERT INTO dbo.MyTable VALUES (123, 12345.12);  
+GO  
+SELECT MyDecimalColumn, MyNumericColumn  
+FROM dbo.MyTable;
+
+MyDecimalColumn                         MyNumericColumn  
+--------------------------------------- ---------------------------------------  
+123.00                                  12345.12000  
+  
+(1 row(s) affected) 
+
+ACRDAPPPreSubmissionId
+
+
+<div class="element-item transition metal " data-category="transition" style="position: absolute; left: 0px; top: 0px;"><h6 class="name"><a class="openVideo" title="Click to view Manual" href="DisplayChapters.aspx?dmanual=active&amp;cgi=OkBvKNnU-b3TyRffkA6GYQ&amp;bgi=Ppz68afB8kgV-wWrXwwr5A&amp;call="><img class="img-responsive" src="#"></a></h6><h6 class="symbol"><a class="openVideo" title="Click to view Course Details" href="#">F A Q Blue Star</a></h6><p class="number">&nbsp;</p></div>
+
+#region Generating email message with the TEMP Password for the RESET ADMIN ACCT.
+
+                    System.Text.StringBuilder strbEmailMSG = new StringBuilder();
+                    strbEmailMSG.Append(objEmp.EmpFName + " " + objEmp.EmpLName + "," + System.Environment.NewLine + System.Environment.NewLine);
+                    strbEmailMSG.Append("ShipTA created a new account for you on " + lstShip[0].ShipName + "." + System.Environment.NewLine + " To access your account enter the following information:" + System.Environment.NewLine + "Username : " + objEmp.EmpEmail + System.Environment.NewLine + "Temporary Password : " + objEmp.EmpTempPass + System.Environment.NewLine);
+                    strbEmailMSG.Append("To access shipTA - shoreside application please visit " + AppConstants.ConstAppURL + "." + System.Environment.NewLine);
+                    strbEmailMSG.Append(System.Environment.NewLine + System.Environment.NewLine);
+                    strbEmailMSG.Append("If you require any further information, feel free to contact " + AppConstants.ConstHelpPhone + System.Environment.NewLine + " or Email us @" + AppConstants.ConstHelpEmail + System.Environment.NewLine + System.Environment.NewLine);
+
+                    #endregion Generating email message with the TEMP Password for the RESET ADMIN ACCT.
+
+                    GlobalMethods.SendEmail(objEmp.EmpEmail, "", strbEmailMSG, "ShipTA - New Account");

@@ -1,0 +1,90 @@
+﻿* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ---- input ---- */
+
+
+/* ---- isotope ---- */
+
+.isotope {
+padding-left:5px;
+ /* border: 1px solid #333; */
+}
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+  float: left;
+  width: 202px;
+  height: 235px;
+  margin: 8px;
+  padding: 0px;
+
+  color: #262524;
+}
+
+.element-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.element-item .name {
+  position: absolute;
+  left: 4px;
+  top: 42px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.element-item .symbol {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.element-item .number {
+  position: absolute;
+  left: 5px;
+  top: 95px;
+  color:black;
+  font-size:15px;
+}
+
+.element-item .weight {
+ position: absolute;
+  right: 10px;
+  top: 95px;
+  font-size: 12px;
+}
+
+.element-item.alkali          { }
+.element-item.alkaline-earth  { }
+.element-item.lanthanoid      { }
+.element-item.actinoid        {  }
+.element-item.transition      { 
+  
+}
+.element-item.post-transition {}
+.element-item.metalloid       { }
+.element-item.diatomic        {  }
+.element-item.halogen         {  }
+.element-item.noble-gas       {  }
